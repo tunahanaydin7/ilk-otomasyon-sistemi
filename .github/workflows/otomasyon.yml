@@ -1,16 +1,13 @@
-name: CI-CD Robotum
+name: Ilk CI-CD Robotum
 
-# Bu robot ne zaman calissin? (Biz koda push attigimiz an)
 on: [push]
 
 jobs:
- docker_insaatini_baslat:
- # Robotun icinde calisacagi sanal bilgisayarin isletim sistemi
- runs-on: ubuntu-latest
+  docker_insaatini_baslat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Asama - Kodlari Depodan Cek
+        uses: actions/checkout@v3
 
- steps:
- - name: 1. Asama - Kodlari Depodan Cek
-   uses: actions/checkout@v3
-
- - name: 2. Asama - Docker Imajini Insa Et
-   run: docker build -t benim_motorum .
+      - name: 2. Asama - Docker Imajini Insa Et
+        run: docker build -t benim_motorum .
